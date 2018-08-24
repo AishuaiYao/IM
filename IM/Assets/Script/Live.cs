@@ -10,7 +10,7 @@ public class Live : MonoBehaviour {
     // Use this for initialization
     private void Start () {
         screen = new Texture2D(Screen.width, Screen.height);
-        MicphoneCapture();
+       // MicphoneCapture();
     }
 	
 	// Update is called once per frame
@@ -87,42 +87,42 @@ public class Live : MonoBehaviour {
     }
     
     
-    public float[] MicphoneCapture()
-    {
-        AudioClip clip = new AudioClip();
-        const int smaplingRate = 8000;
-        float[] samples=new float[smaplingRate];
+    //public float[] MicphoneCapture()
+    //{
+    //    AudioClip clip = new AudioClip();
+    //    const int smaplingRate = 8000;
+    //    float[] samples=new float[smaplingRate];
 
-        string[] devices;
-        devices = Microphone.devices;
+    //    string[] devices;
+    //    devices = Microphone.devices;
 
-        if (devices.Length > 0)
-        {
-            Debug.Log("开始录音！");
-            Microphone.End(null);
+    //    if (devices.Length > 0)
+    //    {
+    //        Debug.Log("开始录音！");
+    //        Microphone.End(null);
             
-            clip = Microphone.Start(null, false, 10, smaplingRate);
+    //        clip = Microphone.Start(null, false, 10, smaplingRate);
          
-            Microphone.End(devices[0]);
-            Debug.Log("结束录音！");
-            clip.GetData(samples, 0);
-            int i = 0;
-            while (i < samples.Length)
-            {
-                samples[i] = samples[i] * 0.5F;
-                ++i;
-            }
-        }
-        else
-        {
-            Debug.Log("未检测到麦克风！");
-        }
+    //        Microphone.End(devices[0]);
+    //        Debug.Log("结束录音！");
+    //        clip.GetData(samples, 0);
+    //        int i = 0;
+    //        while (i < samples.Length)
+    //        {
+    //            samples[i] = samples[i] * 0.5F;
+    //            ++i;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("未检测到麦克风！");
+    //    }
         
-        //clip.SetData(samples, 0);
-        //clip.Play();
+    //    //clip.SetData(samples, 0);
+    //    //clip.Play();
 
-        return samples;
-    }
+    //    return samples;
+    //}
 }
 
 
